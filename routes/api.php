@@ -20,4 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::post('/Apprentice', [ApprenticeController::class,'store'])->name('api.v1.apprentice');
+Route::post('/Apprentice', [ApprenticeController::class,'store'])->name('api.apprentice');
