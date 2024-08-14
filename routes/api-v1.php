@@ -1,7 +1,12 @@
 <?php
 
+
+use App\Http\Controllers\ApprenticeController;
+
 use App\Http\Controllers\AdministratorController;
-use App\Http\Controllers\Api\ApprenticeController;
+
+use App\Http\Controllers\Api\SuperadminController;
+
 use App\Http\Controllers\TrainerController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -25,15 +30,19 @@ Route::get('/prueba', function () {
 });
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+
+
+//Apprentice
+});
+Route::prefix('apprentice')->group(function(){
+ Route::get('list', [ApprenticeController::class,'index']);
+ Route::post('create', [ApprenticeController::class,'store']);
+ Route::get('show/{id}', [ApprenticeController::class,'show']);
+ Route::put('update/{apprentice}', [ApprenticeController::class,'update']);
+ Route::delete('destroy/{apprentice}', [ApprenticeController::class,'destroy']);
 });
 
- Route::get('apprentices', [ApprenticeController::class,'index'])->name('api.v1.apprentices.index');
- Route::post('apprentices', [ApprenticeController::class,'store'])->name('api.v1.apprentices.store');
- Route::get('apprentices/{apprentice}', [ApprenticeController::class,'show'])->name('api.v1.apprentices.show');
- Route::put('apprentices/{apprentice}', [ApprenticeController::class,'update'])->name('api.v1.apprentices.update');
- Route::delete('apprentices/{apprentice}', [ApprenticeController::class,'destroy'])->name('api.v1.apprentices.delete');
-
- //trainers
+//trainers
  Route::prefix('trainers')->group(function(){
     Route::get('list', [TrainerController::class,'index']);
     Route::post('create', [TrainerController::class,'store']);
@@ -46,7 +55,17 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::prefix('administrators')->group(function(){
     Route::get('list', [AdministratorController::class,'index']);
     Route::post('create', [AdministratorController::class,'store']);
-    Route::get('show/{administrators}', [AdministratorController::class,'show']);
-    Route::put('update/{administrators}', [AdministratorController::class,'update']);
-    Route::delete('delete/{administrators}', [AdministratorController::class,'destroy']);
+    Route::get('show/{id}', [AdministratorController::class,'show']);
+    Route::put('update/{administrator}', [AdministratorController::class,'update']);
+    Route::delete('delete/{administrator}', [AdministratorController::class,'destroy']);
+});
+
+
+//RUTAS SUPERADMINISTRADOR
+Route::prefix('superadmins')->group(function(){
+    Route::get('list', [SuperadminController::class,'index']);
+    Route::post('create', [SuperadminController::class,'store']);
+    Route::get('show/{superadmin}', [SuperadminController::class,'show']);
+    Route::put('update/{superadmin}', [SuperadminController::class,'update']);
+    Route::delete('delete/{superadmin}', [SuperadminController::class,'destroy']);
 });
