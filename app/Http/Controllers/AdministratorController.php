@@ -17,13 +17,11 @@ class AdministratorController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            // DATOS PERSONALES
             'Name' => 'required|max:255',
             'Last_name' => 'required|max:255',
-            'Cedula' => 'required|max:255|unique:administrators',
+            'Cedula' => 'required|max:255',
             'Email' => 'required|max:255|unique:administrators',
             'Cell_phone' => 'required|max:255|unique:administrators',
-            // LUGAR DE RESIDENCIA
             'Country' => 'required|max:255',
             'Departament' => 'required|max:255',
             'Municipality' => 'required|max:255',
@@ -35,13 +33,13 @@ class AdministratorController extends Controller
 
         $administrator = Administrator::create($request->all());
 
-        return response()->json($administrator);
+        return response()->json('Creado correctamente');
     }
 
 
-    public function show($id) 
+    public function show($id)
     {
-        $administrator = Administrator::included()->findOrFail($id);
+        $administrator = Administrator::findOrFail($id);
         return response()->json($administrator);
     }
 
@@ -49,13 +47,11 @@ class AdministratorController extends Controller
     public function update(Request $request, Administrator $administrator)
     {
         $request->validate([
-            // DATOS PERSONALES
             'Name' => 'required|max:255',
             'Last_name' => 'required|max:255',
-            'Cedula' => 'required|max:255|unique:administrators,' . $administrator->id,
-            'Email' => 'required|max:255|unique:administrators,' . $administrator->id,
-            'Cell_phone' => 'required|max:255|unique:administrators,' . $administrator->id,
-            // LUGAR DE RESIDENCIA
+            'Cedula' => 'required|max:255|',
+            'Email' => 'required|max:255|',
+            'Cell_phone' => 'required|max:255|',
             'Country' => 'required|max:255',
             'Departament' => 'required|max:255',
             'Municipality' => 'required|max:255',
@@ -66,14 +62,14 @@ class AdministratorController extends Controller
 
         $administrator->update($request->all());
 
-        return response()->json($administrator);
+        return response()->json('Actualizado Correctamente');
     }
 
 
     public function destroy(Administrator $administrator)
     {
         $administrator->delete();
-        return response()->json($administrator);
+        return response()->json('Eliminado Correctamente');
     }
 
 
