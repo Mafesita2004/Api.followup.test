@@ -9,5 +9,5 @@ class Administrator extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['Name', 'Last_name', 'Cedula', 'Email', 'Cell_phone', 'Country', 'Department', 'Municipality', 'Neighborhood', 'Address']; 
+    protected $fillable = ['Name', 'Last_name', 'Cedula', 'Email', 'Cell_phone', 'Country', 'Departament', 'Municipality', 'Neighborhood', 'Address'];
 }

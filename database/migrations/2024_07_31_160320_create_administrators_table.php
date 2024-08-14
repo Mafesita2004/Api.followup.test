@@ -22,7 +22,7 @@ return new class extends Migration
 
             // LUGAR DE RESIDENCIA
             $table->string('Country');
-            $table->string('Department');
+            $table->string('Departament');
             $table->string('Municipality');
             $table->string('Neighborhood');
             $table->string('Address');
