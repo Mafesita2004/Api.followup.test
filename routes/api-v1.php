@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Api\ApprenticeController;
+use App\Http\Controllers\ApprenticeController;
 use App\Http\Controllers\TrainerController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -24,15 +24,19 @@ Route::get('/prueba', function () {
 });
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+
+
+//Apprentice
+});
+Route::prefix('apprentice')->group(function(){
+ Route::get('list', [ApprenticeController::class,'index']);
+ Route::post('create', [ApprenticeController::class,'store']);
+ Route::get('show/{id}', [ApprenticeController::class,'show']);
+ Route::put('update/{apprentice}', [ApprenticeController::class,'update']);
+ Route::delete('destroy/{apprentice}', [ApprenticeController::class,'destroy']);
 });
 
- Route::get('apprentices', [ApprenticeController::class,'index'])->name('api.v1.apprentices.index');
- Route::post('apprentices', [ApprenticeController::class,'store'])->name('api.v1.apprentices.store');
- Route::get('apprentices/{apprentice}', [ApprenticeController::class,'show'])->name('api.v1.apprentices.show');
- Route::put('apprentices/{apprentice}', [ApprenticeController::class,'update'])->name('api.v1.apprentices.update');
- Route::delete('apprentices/{apprentice}', [ApprenticeController::class,'destroy'])->name('api.v1.apprentices.delete');
-
- //trainers
+//trainers
  Route::prefix('trainers')->group(function(){
     Route::get('list', [TrainerController::class,'index']);
     Route::post('create', [TrainerController::class,'store']);

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Apprentice;
@@ -32,11 +32,21 @@ class ApprenticeController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'identification' => 'required|max:255',
+            'name' => 'required|max:255',
+            'lastname' => 'required|max:255',
+            'program' => 'required|max:255',
+            'ficha' => 'required|max:255',
             'telephone' => 'required|max:255',
             'email' => 'required|max:255',
+            'inicio_contrato' => 'required|max:255',
+            'fin_contrato' => 'required|max:255',
+            'nit_empresa' => 'required|max:255',
+            'razon_social' => 'required|max:255',
             'address' => 'required|max:255',
-
-
+            'telephone_empresa' => 'required|max:255',
+            'name_trainer' => 'required|max:255',
+            'email_trainer' => 'required|max:255',
         ]);
 
         $apprentice = Apprentice::create($request->all());
@@ -54,7 +64,7 @@ class ApprenticeController extends Controller
         // $category = Category::with(['posts.user'])->findOrFail($id);
         // $category = Category::with(['posts'])->findOrFail($id);
         // $category = Category::included();
-        $apprentice = Apprentice::included()->findOrFail($id);
+        $apprentice = Apprentice::findOrFail($id);
         return response()->json($apprentice);
         //http://api.codersfree1.test/v1/categories/1/?included=posts.user
     }
@@ -73,19 +83,28 @@ class ApprenticeController extends Controller
     public function update(Request $request, Apprentice $apprentice)
     {
         $request->validate([
+            'identification' => 'required|max:255',
             'name' => 'required|max:255',
-            'slug' => 'required|max:255|unique:categories,slug,' . $apprentice->id,
-
+            'lastname' => 'required|max:255',
+            'program' => 'required|max:255',
+            'ficha' => 'required|max:255',
+            'telephone' => 'required|max:255',
+            'email' => 'required|max:255',
+            'inicio_contrato' => 'required|max:255',
+            'fin_contrato' => 'required|max:255',
+            'nit_empresa' => 'required|max:255',
+            'razon_social' => 'required|max:255',
+            'address' => 'required|max:255',
+            'telephone_empresa' => 'required|max:255',
+            'name_trainer' => 'required|max:255',
+            'email_trainer' => 'required|max:255',
         ]);
 
         $apprentice->update($request->all());
 
-        return response()->json($apprentice);
+        return response()->json('ACTUALIZADO CORRECTAMENTE');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Apprentice $apprentice)
     {
         $apprentice->delete();
