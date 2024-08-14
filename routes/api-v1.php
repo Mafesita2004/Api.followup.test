@@ -37,7 +37,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
  Route::prefix('trainers')->group(function(){
     Route::get('list', [TrainerController::class,'index']);
     Route::post('create', [TrainerController::class,'store']);
-    Route::get('show/{trainers}', [TrainerController::class,'show']);
+    Route::get('show/{trainer}', [TrainerController::class,'show']);
     Route::put('update/{trainer}', [TrainerController::class,'update']);
     Route::delete('delete/{trainer}', [TrainerController::class,'destroy']);
 });

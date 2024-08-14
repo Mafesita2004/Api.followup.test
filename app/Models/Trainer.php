@@ -14,3 +14,4 @@ class Trainer extends Model
 
     protected $table= 'trainers';
 }
+   
