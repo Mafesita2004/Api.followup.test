@@ -38,7 +38,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
  Route::prefix('trainers')->group(function(){
     Route::get('list', [TrainerController::class,'index']);
     Route::post('create', [TrainerController::class,'store']);
-    Route::get('show/{trainers}', [TrainerController::class,'show']);
+    Route::get('show/{trainer}', [TrainerController::class,'show']);
     Route::put('update/{trainer}', [TrainerController::class,'update']);
     Route::delete('delete/{trainer}', [TrainerController::class,'destroy']);
 });
@@ -47,9 +47,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::prefix('administrators')->group(function(){
     Route::get('list', [AdministratorController::class,'index']);
     Route::post('create', [AdministratorController::class,'store']);
-    Route::get('show/{administrators}', [AdministratorController::class,'show']);
-    Route::put('update/{administrators}', [AdministratorController::class,'update']);
-    Route::delete('delete/{administrators}', [AdministratorController::class,'destroy']);
+    Route::get('show/{id}', [AdministratorController::class,'show']);
+    Route::put('update/{administrator}', [AdministratorController::class,'update']);
+    Route::delete('delete/{administrator}', [AdministratorController::class,'destroy']);
 });
 
 
