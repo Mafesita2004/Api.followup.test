@@ -37,11 +37,11 @@ class TrainerController extends Controller
 
         $trainer = Trainer::create($request->all());
 
-        return response()->json($trainer);
+        return response()->json('Registrado con exito');
     }
     public function show($id)
     {
-        $trainer = Trainer::included()->findOrFail($id);
+        $trainer = Trainer::findOrFail($id);
         return response()->json($trainer);
     }
 
@@ -69,14 +69,14 @@ class TrainerController extends Controller
 
         $trainer->update($request->all());
 
-        return response()->json($trainer);
+        return response()->json('Actualizado');
     }
 
 
     public function destroy(Trainer $trainer)
     {
         $trainer->delete();
-        return response()->json($trainer);
+        return response()->json('Eliminado Correctamente');
     }
 
 

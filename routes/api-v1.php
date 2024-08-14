@@ -37,6 +37,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     Route::get('list', [TrainerController::class,'index']);
     Route::post('create', [TrainerController::class,'store']);
     Route::get('show/{trainers}', [TrainerController::class,'show']);
-    Route::put('update/{trainers}', [TrainerController::class,'update']);
-    Route::delete('delete/{trainers}', [TrainerController::class,'destroy']);
+    Route::put('update/{trainer}', [TrainerController::class,'update']);
+    Route::delete('delete/{trainer}', [TrainerController::class,'destroy']);
 });

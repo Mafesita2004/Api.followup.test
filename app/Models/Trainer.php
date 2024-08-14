@@ -11,4 +11,6 @@ class Trainer extends Model
     protected $fillable = ['name', 'last_name','identification_card','email','cell_phone',
     'program','total_hours','hours_worked','start_date','ending_date',
     'country','department','municipality','neighborhood','address'];
+
+    protected $table= 'trainers';
 }
