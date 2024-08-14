@@ -11,13 +11,11 @@ class AdministratorController extends Controller
     public function index()
     {
         $administrators=Administrator::all();
-
         return response()->json($administrators);
     }
 
     public function store(Request $request)
     {
-
         $request->validate([
             // DATOS PERSONALES
             'Name' => 'required|max:255',
@@ -41,13 +39,10 @@ class AdministratorController extends Controller
     }
 
 
-    public function show($id) //si se pasa $id se utiliza la comentada
+    public function show($id) 
     {
-
         $administrator = Administrator::included()->findOrFail($id);
         return response()->json($administrator);
-
-
     }
 
 
