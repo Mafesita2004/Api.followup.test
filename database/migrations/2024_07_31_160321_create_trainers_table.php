@@ -15,12 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('last_name');
-            $table->string('identification_card');
+            $table->integer('identification_card');
             $table->string('email');
-            $table->string('cell_phone');
+            $table->integer('cell_phone');
             $table->string('program');
-            $table->string('total_hours');
-            $table->string('hours_worked');
+            $table->integer('total_hours');
+            $table->integer('hours_worked');
             $table->string('start_date');
             $table->string('ending_date');
             $table->string('country');
