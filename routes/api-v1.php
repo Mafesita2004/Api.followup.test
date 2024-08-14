@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdministratorController;
 use App\Http\Controllers\Api\ApprenticeController;
+use App\Http\Controllers\Api\SuperadminController;
 use App\Http\Controllers\TrainerController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -49,4 +50,14 @@ Route::prefix('administrators')->group(function(){
     Route::get('show/{administrators}', [AdministratorController::class,'show']);
     Route::put('update/{administrators}', [AdministratorController::class,'update']);
     Route::delete('delete/{administrators}', [AdministratorController::class,'destroy']);
+});
+
+
+//RUTAS SUPERADMINISTRADOR
+Route::prefix('superadmins')->group(function(){
+    Route::get('list', [SuperadminController::class,'index']);
+    Route::post('create', [SuperadminController::class,'store']);
+    Route::get('show/{superadmin}', [SuperadminController::class,'show']);
+    Route::put('update/{superadmin}', [SuperadminController::class,'update']);
+    Route::delete('delete/{superadmin}', [SuperadminController::class,'destroy']);
 });

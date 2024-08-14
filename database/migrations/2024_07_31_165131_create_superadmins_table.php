@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('superadmins', function (Blueprint $table) {
             $table->id();
-            $table->string('identificacion');
+            $table->integer('identificacion');
             $table->string('name');
             $table->string('last_name');
             $table->string('email');
@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('municipality');
             $table->string('neighborhood');
             $table->string('country');
-            $table->timestamp('Birthdate');
+            $table->string('Birthdate');
             $table->timestamps();
         });
     }
