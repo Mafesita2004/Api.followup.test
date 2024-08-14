@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('Department');
             $table->string('Municipality');
             $table->string('Neighborhood');
-            $table->string('Address ');
+            $table->string('Address');
             $table->timestamps();
 
         });
