@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use App\Models\Apprentice;
 use Illuminate\Http\Request;
 
@@ -34,7 +35,7 @@ class ApprenticeController extends Controller
             'telephone' => 'required|max:255',
             'email' => 'required|max:255',
             'address' => 'required|max:255',
-            
+
 
         ]);
 
@@ -48,7 +49,7 @@ class ApprenticeController extends Controller
      */
     public function show($id)
     {
-      
+
        // $category = Category::findOrFail($id);
         // $category = Category::with(['posts.user'])->findOrFail($id);
         // $category = Category::with(['posts'])->findOrFail($id);
