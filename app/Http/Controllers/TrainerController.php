@@ -41,7 +41,10 @@ class TrainerController extends Controller
     }
     public function show($id)
     {
-        $trainer = Trainer::findOrFail($id);
+        $trainer = Trainer::find($id);
+        if(!$trainer){
+            return response()->json(['message'=>'No existe este registro'],404);
+        }
         return response()->json($trainer);
     }
 
@@ -73,8 +76,13 @@ class TrainerController extends Controller
     }
 
 
-    public function destroy(Trainer $trainer)
+    public function destroy($trainer)
     {
+        $trainer = Trainer::find($trainer);
+
+        if(!$trainer){
+            return response()->json(['message'=>'No existe este registro'],404);
+        }
         $trainer->delete();
         return response()->json('Eliminado Correctamente');
     }
