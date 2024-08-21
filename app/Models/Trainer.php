@@ -16,6 +16,10 @@ class Trainer extends Model
 
     protected $table= 'trainers';
 
+    public function followups()
+    {
+        return $this->hasMany(Followup::class);
+    }
     public function notifications(){
         return $this->belongsTo(Notification::class);
     }

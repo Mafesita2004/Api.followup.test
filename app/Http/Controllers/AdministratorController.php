@@ -12,7 +12,7 @@ class AdministratorController extends Controller
     {
         $administrators=Administrator::all();
         return response()->json($administrators);
-    }
+    } 
 
     public function store(Request $request)
     {

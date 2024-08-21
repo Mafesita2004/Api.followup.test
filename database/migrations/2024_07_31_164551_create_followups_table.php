@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -30,7 +29,6 @@ return new class extends Migration
             $table->foreign('trainer_id')->references('id')->on('trainers')->onDelete('cascade');
             $table->foreign('superadmin_id')->references('id')->on('superadmins')->onDelete('cascade');
             $table->foreign('apprentice_id')->references('id')->on('apprentices')->onDelete('cascade');
-
         });
     }
 

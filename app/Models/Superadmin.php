@@ -28,6 +28,10 @@ class Superadmin extends Model
     ];
     protected $table='superadmins';
 
+    public function followups()
+    {
+        return $this->hasMany(Followup::class);
+    }
     public function notifications(){
         return $this->belongsTo(Notification::class);
     }

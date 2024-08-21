@@ -7,6 +7,7 @@ use App\Http\Controllers\AdministratorController;
 
 use App\Http\Controllers\Api\SuperadminController;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\FollowupController;
 use App\Http\Controllers\TrainerController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -78,4 +79,12 @@ Route::prefix('notifications')->group(function(){
     Route::get('show/{id}', [NotificationController::class,'show']);
     Route::put('update/{notification}', [NotificationController::class,'update']);
     Route::delete('delete/{notification}', [NotificationController::class,'destroy']);
+
+//RUTAS FOLLOWUP
+Route::prefix('followups')->group(function() {
+    Route::get('list', [FollowupController::class, 'index']);
+    Route::post('create', [FollowupController::class, 'store']);
+    Route::get('show/{followup}', [FollowupController::class, 'show']);
+    Route::get('update/{followup}', [FollowupController::class, 'update']);
+    Route::delete('delete/{followup}', [FollowupController::class, 'destroy']);
 });
