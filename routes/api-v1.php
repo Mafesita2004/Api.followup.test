@@ -79,6 +79,7 @@ Route::prefix('notifications')->group(function(){
     Route::get('show/{id}', [NotificationController::class,'show']);
     Route::put('update/{notification}', [NotificationController::class,'update']);
     Route::delete('delete/{notification}', [NotificationController::class,'destroy']);
+});
 
 //RUTAS FOLLOWUP
 Route::prefix('followups')->group(function() {
