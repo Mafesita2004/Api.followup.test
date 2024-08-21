@@ -27,13 +27,11 @@ class Apprentice extends Model
             'name_trainer',
             'email_trainer',
     ];
-<<<<<<< HEAD
     public function followup()
     {
         return $this->belongsTo(Followup::class);
-=======
+    }
     public function notifications(){
         return $this->belongsTo(Notification::class);
->>>>>>> 8a889721dd544061fe3fff76e2edb113c1c6bb5c
     }
 }
