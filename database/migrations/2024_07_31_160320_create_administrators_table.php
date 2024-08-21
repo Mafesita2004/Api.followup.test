@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -12,23 +13,25 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('administrators', function (Blueprint $table) {
-            // DATOS BASICOS
+
             $table->id();
             $table->string('Name');
-            $table->string('Last_name');
-            $table->string('Cedula');
-            $table->string('Email');
-            $table->string('Cell_phone');
-
-            // LUGAR DE RESIDENCIA
-            $table->string('Country');
-            $table->string('Departament');
-            $table->string('Municipality');
-            $table->string('Neighborhood');
-            $table->string('Address');
+            // $table->string('Last_name');
+            // $table->string('Cedula');
+            // $table->string('Email');
+            // $table->string('Cell_phone');
+            // $table->string('Country');
+            // $table->string('Departament');
+            // $table->string('Municipality');
+            // $table->string('Neighborhood');
+            // $table->string('Address');
             $table->timestamps();
 
         });
+
+        DB::table('administrators')->insert([
+            ["Name" => 'Juan']
+        ]);
     }
 
     /**
