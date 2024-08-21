@@ -25,4 +25,8 @@ class Apprentice extends Model
             'name_trainer',
             'email_trainer',
     ];
+    public function followup()
+    {
+        return $this->belongsTo(Followup::class);
+    }
 }

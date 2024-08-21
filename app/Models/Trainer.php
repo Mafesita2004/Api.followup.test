@@ -13,5 +13,9 @@ class Trainer extends Model
     'country','department','municipality','neighborhood','address'];
 
     protected $table= 'trainers';
+
+    public function followups()
+    {
+        return $this->hasMany(Followup::class);
+    }
 }
-   

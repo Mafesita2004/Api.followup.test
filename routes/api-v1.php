@@ -6,7 +6,7 @@ use App\Http\Controllers\ApprenticeController;
 use App\Http\Controllers\AdministratorController;
 
 use App\Http\Controllers\Api\SuperadminController;
-
+use App\Http\Controllers\FollowupController;
 use App\Http\Controllers\TrainerController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -68,4 +68,15 @@ Route::prefix('superadmins')->group(function(){
     Route::get('show/{superadmin}', [SuperadminController::class,'show']);
     Route::put('update/{superadmin}', [SuperadminController::class,'update']);
     Route::delete('delete/{superadmin}', [SuperadminController::class,'destroy']);
+});
+
+
+
+//RUTAS FOLLOWUP
+Route::prefix('followups')->group(function() {
+    Route::get('list', [FollowupController::class, 'index']);
+    Route::post('create', [FollowupController::class, 'store']);
+    Route::get('show/{followup}', [FollowupController::class, 'show']);
+    Route::get('update/{followup}', [FollowupController::class, 'update']);
+    Route::delete('delete/{followup}', [FollowupController::class, 'destroy']);
 });
