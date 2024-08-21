@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('diaries', function (Blueprint $table) {
             $table->id();
+            $table->string('Descripcion');
             $table->timestamps();
         });
     }

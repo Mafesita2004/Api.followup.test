@@ -29,6 +29,10 @@ class Superadmin extends Model
         'Birthdate'
     ];
     protected $table='superadmins';
+<<<<<<< HEAD
 
 }
+=======
+>>>>>>> 15e2533231d26e4dfc4d9a9944d81039f87268cb
 
+}

@@ -13,10 +13,14 @@ return new class extends Migration
     {
         Schema::create('notifications', function (Blueprint $table) {
             $table->id();
+<<<<<<< HEAD
             $table->date("fecha_envio");
             $table->string("contenido");
 
 
+=======
+            $table->string('Descripcion');
+>>>>>>> 15e2533231d26e4dfc4d9a9944d81039f87268cb
             $table->timestamps();
             $table->foreign('superadmin_id')->references('id')->on('superadmins')->onDelete('cascade');
         });
