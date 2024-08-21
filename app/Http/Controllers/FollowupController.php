@@ -10,13 +10,9 @@ class FollowupController extends Controller
     public function index()
     {
         $followups = Followup::all();
-        return view('followups.index', compact('followups'));
+        return response()->json($followups);
     }
 
-    public function create()
-    {
-        return view('followups.create');
-    }
 
     public function store(Request $request)
     {
@@ -33,19 +29,16 @@ class FollowupController extends Controller
             'apprentice_id' => 'required|exists:apprentices,id|unique:followups,apprentice_id',
         ]);
 
-        Followup::create($validated);
+        $followup = Followup::create($request->all());
 
-        return redirect()->route('followups.index')->with('success', 'Seguimiento creado con éxito.');
+        return response()->json('Seguimiento se a creado con éxito.');
     }
 
-    public function show(Followup $followup)
-    {
-        return view('followups.show', compact('followup'));
-    }
 
-    public function edit(Followup $followup)
+    public function show($id)
     {
-        return view('followups.edit', compact('followup'));
+        $followup = Followup::findOrFail($id);
+        return response()->json($followup);
     }
 
     public function update(Request $request, Followup $followup)
@@ -63,15 +56,15 @@ class FollowupController extends Controller
             'apprentice_id' => 'required|exists:apprentices,id|unique:followups,apprentice_id,' . $followup->id,
         ]);
 
-        $followup->update($validated);
 
-        return redirect()->route('followups.index')->with('success', 'Seguimiento actualizado con éxito.');
+        $followup = Followup::create($request->all());
+
+        return response()->json('Seguimiento actualizado con éxito.');
     }
 
     public function destroy(Followup $followup)
     {
         $followup->delete();
-
-        return redirect()->route('followups.index')->with('success', 'Seguimiento eliminado con éxito.');
+    return response()->json('Seguimiento eliminado con éxito.');
     }
 }
