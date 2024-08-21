@@ -6,7 +6,7 @@ use App\Http\Controllers\ApprenticeController;
 use App\Http\Controllers\AdministratorController;
 
 use App\Http\Controllers\Api\SuperadminController;
-
+use App\Http\Controllers\DiaryController;
 use App\Http\Controllers\TrainerController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -68,4 +68,13 @@ Route::prefix('superadmins')->group(function(){
     Route::get('show/{superadmin}', [SuperadminController::class,'show']);
     Route::put('update/{superadmin}', [SuperadminController::class,'update']);
     Route::delete('delete/{superadmin}', [SuperadminController::class,'destroy']);
+});
+
+//RUTAS AGENDA
+Route::prefix('diaries')->group(function(){
+    Route::get('list', [DiaryController::class,'index']);
+    Route::post('create', [DiaryController::class,'store']);
+    Route::get('show/{id}', [DiaryController::class,'show']);
+    Route::put('update/{diary}', [DiaryController::class,'update']);
+    Route::delete('delete/{diary}', [DiaryController::class,'destroy']);
 });
