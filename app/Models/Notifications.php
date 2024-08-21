@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Notifications extends Model
 {
     use HasFactory;
+
+    public function Superadmin(){
+        return $this->hasMany(Superadmin::class);
+    }
+
 }
