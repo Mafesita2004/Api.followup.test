@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notification;
 
 class Apprentice extends Model
 {
     use HasFactory;
+
     protected $fillable = [
        'identification',
             'name',
@@ -25,4 +27,7 @@ class Apprentice extends Model
             'name_trainer',
             'email_trainer',
     ];
+    public function notifications(){
+        return $this->belongsTo(Notification::class);
+    }
 }

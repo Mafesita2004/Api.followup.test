@@ -10,9 +10,7 @@ class Superadmin extends Model
 {
     use HasFactory;
 
-    public function notifications(){
-        return $this->belongsTo(Notification::class);
-    }
+
      // Campos que se pueden asignar de manera masiva
      protected $fillable = [
         'identificacion',
@@ -29,10 +27,11 @@ class Superadmin extends Model
         'Birthdate'
     ];
     protected $table='superadmins';
-<<<<<<< HEAD
+
+    public function notifications(){
+        return $this->belongsTo(Notification::class);
+    }
 
 }
-=======
->>>>>>> 15e2533231d26e4dfc4d9a9944d81039f87268cb
 
-}
+
