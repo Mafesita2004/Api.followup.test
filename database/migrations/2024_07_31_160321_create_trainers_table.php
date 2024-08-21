@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -14,22 +15,26 @@ return new class extends Migration
         Schema::create('trainers', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('last_name');
-            $table->integer('identification_card');
-            $table->string('email');
-            $table->integer('cell_phone');
-            $table->string('program');
-            $table->integer('total_hours');
-            $table->integer('hours_worked');
-            $table->string('start_date');
-            $table->string('ending_date');
-            $table->string('country');
-            $table->string('department');
-            $table->string('municipality');
-            $table->string('neighborhood');
-            $table->string('address');
+            // $table->string('last_name');
+            // $table->integer('identification_card');
+            // $table->string('email');
+            // $table->integer('cell_phone');
+            // $table->string('program');
+            // $table->integer('total_hours');
+            // $table->integer('hours_worked');
+            // $table->string('start_date');
+            // $table->string('ending_date');
+            // $table->string('country');
+            // $table->string('department');
+            // $table->string('municipality');
+            // $table->string('neighborhood');
+            // $table->string('address');
             $table->timestamps();
         });
+
+        DB::table('trainers')->insert([
+            ["Name" => 'Felipe']
+        ]);
     }
 
     /**
