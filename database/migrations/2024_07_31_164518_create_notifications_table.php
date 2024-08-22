@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('notifications', function (Blueprint $table) {
             $table->id();
-            $table->date("fecha_envio");
+            $table->string("fecha_envio");
             $table->string("contenido");
 
-            $table->foreignId('superadmin_id')->references('id')->on('superadmins')->onDelete('cascade');
-            $table->foreignId('administrator_id')->references('id')->on('administrators')->onDelete('cascade');
-            $table->foreignId('trainer_id')->references('id')->on('trainers')->onDelete('cascade');
-            $table->foreignId('apprentice_id')->references('id')->on('apprentices')->onDelete('cascade');
+            $table->foreignId('id_superadmin')->references('id')->on('superadmins')->onDelete('cascade');
+            $table->foreignId('id_administrator')->references('id')->on('administrators')->onDelete('cascade');
+            $table->foreignId('id_trainer')->references('id')->on('trainers')->onDelete('cascade');
+            $table->foreignId('id_apprentice')->references('id')->on('apprentices')->onDelete('cascade');
             $table->timestamps();
         });
     }

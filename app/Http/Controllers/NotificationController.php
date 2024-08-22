@@ -19,7 +19,10 @@ class NotificationController extends Controller
         $request->validate([
             'fecha_envio' => 'required|max:255',
             'contenido' => 'required|max:255',
-
+            'id_superadmin' => 'required|exists:superadmins,id',
+            'id_administrator' => 'required|exists:administrators,id',
+            'id_trainer' => 'required|exists:trainers,id',
+            'id_apprentice' => 'required|exists:apprentices,id',
 
         ]);
 
@@ -43,6 +46,10 @@ class NotificationController extends Controller
 
             'fecha_envio' => 'required|max:255',
             'contenido' => 'required|max:255',
+            'id_superadmin' => 'required|exists:superadmins,id',
+            'id_administrator' => 'required|exists:administrators,id',
+            'id_trainer' => 'required|exists:trainers,id',
+            'id_apprentice' => 'required|exists:apprentices,id',
 
         ]);
 

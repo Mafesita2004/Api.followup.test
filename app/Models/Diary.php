@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Diary extends Model
 {
     use HasFactory;
+ 
+    // Campos que se pueden asignar de manera masiva
+    protected $fillable = [
+       'name',
+       'email',
+       'telephone',
+      
+     
+   ];
+
 }
+

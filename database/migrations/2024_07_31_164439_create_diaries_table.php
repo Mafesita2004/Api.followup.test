@@ -13,7 +13,11 @@ return new class extends Migration
     {
         Schema::create('diaries', function (Blueprint $table) {
             $table->id();
-            $table->string('Descripcion');
+            $table->string('name');
+            $table->string('email');
+            $table->string('telephone');
+            $table->unsignedBigInteger('trainer_id')->nullable();
+            $table->foreign('trainer_id')->references('id')->on('trainers')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -6,7 +6,7 @@ use App\Http\Controllers\ApprenticeController;
 use App\Http\Controllers\AdministratorController;
 
 use App\Http\Controllers\Api\SuperadminController;
-use App\Http\Controllers\FollowupController;
+
 use App\Http\Controllers\TrainerController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -71,6 +71,14 @@ Route::prefix('superadmins')->group(function(){
 });
 
 
+//RUTAS NOTIFICACIONES
+Route::prefix('notifications')->group(function(){
+    Route::get('list', [NotificationController::class,'index']);
+    Route::post('create', [NotificationController::class,'store']);
+    Route::get('show/{id}', [NotificationController::class,'show']);
+    Route::put('update/{notification}', [NotificationController::class,'update']);
+    Route::delete('delete/{notification}', [NotificationController::class,'destroy']);
+});
 
 //RUTAS FOLLOWUP
 Route::prefix('followups')->group(function() {
@@ -79,4 +87,13 @@ Route::prefix('followups')->group(function() {
     Route::get('show/{id}', [FollowupController::class, 'show']);
     Route::put('update/{followup}', [FollowupController::class, 'update']);
     Route::delete('delete/{followup}', [FollowupController::class, 'destroy']);
+});
+
+//RUTAS AGENDA
+Route::prefix('diaries')->group(function(){
+    Route::get('list', [DiaryController::class,'index']);
+    Route::post('create', [DiaryController::class,'store']);
+    Route::get('show/{id}', [DiaryController::class,'show']);
+    Route::put('update/{diary}', [DiaryController::class,'update']);
+    Route::delete('delete/{diary}', [DiaryController::class,'destroy']);
 });
