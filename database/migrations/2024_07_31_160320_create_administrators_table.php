@@ -16,22 +16,33 @@ return new class extends Migration
 
             $table->id();
             $table->string('Name');
-            // $table->string('Last_name');
-            // $table->string('Cedula');
-            // $table->string('Email');
-            // $table->string('Cell_phone');
-            // $table->string('Country');
-            // $table->string('Departament');
-            // $table->string('Municipality');
-            // $table->string('Neighborhood');
-            // $table->string('Address');
+            $table->string('Last_name');
+            $table->string('Cedula');
+            $table->string('Email');
+            $table->string('Cell_phone');
+            $table->string('Country');
+            $table->string('Departament');
+            $table->string('Municipality');
+            $table->string('Neighborhood');
+            $table->string('Address');
+            $table->foreignId('id_superadmin')->references('id')->on('superadmins')->onDelete('cascade');
             $table->timestamps();
 
         });
 
-        DB::table('administrators')->insert([
-            ["Name" => 'Juan']
-        ]);
+        // DB::table('administrators')->insert([
+        //     ["Name" => 'Juan'],
+        // //     ['Last_name' => 'Gomez'],
+        // //     ['Cedula' => '12345'],
+        // //     ['Email' => 'juan@gmail.com'],
+        // //     ['Cell_phone' => '321456789'],
+        // //     ['Country' => 'Colombia'],
+        // //     ['Departament' => 'Cauca'],
+        // //     ['Municipality' => 'Popayan'],
+        // //     ['Neighborhood' => 'Esmeralda'],
+        // //     ['Address' => 'Calle #4'],
+        //     ["id_superadmin" => 1]
+        // ]);
     }
 
     /**

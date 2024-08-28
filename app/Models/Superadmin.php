@@ -35,6 +35,9 @@ class Superadmin extends Model
     public function notifications(){
         return $this->belongsTo(Notification::class);
     }
+    public function administrators(){
+        return $this->hasMany(Administrator::class);
+    }
 
 }
 

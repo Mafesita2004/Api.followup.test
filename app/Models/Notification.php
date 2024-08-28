@@ -12,16 +12,16 @@ class Notification extends Model
     protected $fillable = ['fecha_envio', 'contenido', 'id_superadmin', 'id_administrator', 'id_trainer', 'id_apprentice'];
     protected $table= 'notifications';
 
-    public function Superadmin(){
+    public function Superadmins(){
         return $this->hasMany(Superadmin::class);
     }
-    public function Administrator(){
+    public function Administrators(){
         return $this->hasMany(Administrator::class);
     }
-    public function Trainer(){
+    public function Trainers(){
         return $this->hasMany(Trainer::class);
     }
-    public function Apprentice(){
+    public function Apprentices(){
         return $this->hasMany(Apprentice::class);
     }
 
