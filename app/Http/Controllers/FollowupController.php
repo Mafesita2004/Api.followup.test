@@ -19,14 +19,14 @@ class FollowupController extends Controller
         $validated = $request->validate([
             'Evaluación_de_progreso' => 'required|string|max:255',
             'Actividades_Realizadas' => 'required|integer',
-            'Fecha_Inicio' => 'required|date',
-            'Fecha_Fin' => 'required|date',
-            'Etapa practica' => 'required|string|max:255',
+            'Fecha_Inicio' => 'required|string',
+            'Fecha_Fin' => 'required|string',
+            'Etapa_practica' => 'required|string|max:255',
             'Bitacoras' => 'required|integer',
-            'Informe_visita' => 'required|date',
-            'trainer_id' => 'required|exists:trainers,id',
-            'superadmin_id' => 'required|exists:superadmins,id',
-            'apprentice_id' => 'required|exists:apprentices,id|unique:followups,apprentice_id',
+            'Informe_visita' => 'required|string',
+            'trainer_id' => 'nullable|required|exists:trainers,id',
+            'superadmin_id' => 'nullable|required|exists:superadmins,id',
+            'apprentice_id' => 'nullable|required|exists:apprentices,id'
         ]);
 
         $followup = Followup::create($request->all());
@@ -46,14 +46,14 @@ class FollowupController extends Controller
         $validated = $request->validate([
             'Evaluación_de_progreso' => 'required|string|max:255',
             'Actividades_Realizadas' => 'required|integer',
-            'Fecha_Inicio' => 'required|date',
-            'Fecha_Fin' => 'required|date',
-            'Etapa practica' => 'required|string|max:255',
+            'Fecha_Inicio' => 'required|string',
+            'Fecha_Fin' => 'required|string',
+            'Etapa_practica' => 'required|string|max:255',
             'Bitacoras' => 'required|integer',
-            'Informe_visita' => 'required|date',
-            'trainer_id' => 'required|exists:trainers,id',
-            'superadmin_id' => 'required|exists:superadmins,id',
-            'apprentice_id' => 'required|exists:apprentices,id|unique:followups,apprentice_id,' . $followup->id,
+            'Informe_visita' => 'required|string',
+            'trainer_id' => 'nullable|required|exists:trainers,id',
+            'superadmin_id' => 'nullable|required|exists:superadmins,id',
+            'apprentice_id' => 'nullable|required|exists:apprentices,id'
         ]);
 
 

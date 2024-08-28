@@ -14,7 +14,7 @@ protected $fillable =[
 'Actividades_Realizadas',
 'Fecha_Inicio',
 'Fecha_Fin',
-'Etapa practica',
+'Etapa_practica',
 'Bitacoras',
 'Informe_visita',
 'trainer_id',

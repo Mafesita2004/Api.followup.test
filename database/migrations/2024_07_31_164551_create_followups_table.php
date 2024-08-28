@@ -14,11 +14,11 @@ return new class extends Migration
             $table->id();
             $table->string('Evaluación_de_progreso');
             $table->integer('Actividades_Realizadas');
-            $table->date('Fecha_Inicio');
-            $table->date('Fecha_Fin');
-            $table->string('Etapa practica');
+            $table->string('Fecha_Inicio');
+            $table->string('Fecha_Fin');
+            $table->string('Etapa_practica');
             $table->integer('Bitacoras');
-            $table->date('Informe_visita');
+            $table->string('Informe_visita');
 
             $table->unsignedBigInteger('trainer_id');
             $table->unsignedBigInteger('superadmin_id');

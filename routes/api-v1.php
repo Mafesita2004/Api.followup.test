@@ -86,8 +86,8 @@ Route::prefix('notifications')->group(function(){
 Route::prefix('followups')->group(function() {
     Route::get('list', [FollowupController::class, 'index']);
     Route::post('create', [FollowupController::class, 'store']);
-    Route::get('show/{followup}', [FollowupController::class, 'show']);
-    Route::get('update/{followup}', [FollowupController::class, 'update']);
+    Route::get('show/{id}', [FollowupController::class, 'show']);
+    Route::put('update/{followup}', [FollowupController::class, 'update']);
     Route::delete('delete/{followup}', [FollowupController::class, 'destroy']);
 });
 
