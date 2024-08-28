@@ -91,6 +91,7 @@ Route::prefix('followups')->group(function() {
     Route::delete('delete/{followup}', [FollowupController::class, 'destroy']);
 });
 
+
 //RUTAS AGENDA
 Route::prefix('diaries')->group(function(){
     Route::get('list', [DiaryController::class,'index']);

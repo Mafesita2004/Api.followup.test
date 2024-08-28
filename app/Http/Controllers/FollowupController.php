@@ -7,33 +7,37 @@ use Illuminate\Http\Request;
 
 class FollowupController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $followups = Followup::all();
+        $included = $request->input('included');
+
+        $followups = Followup::included($included);
+        $followups = Followup::included()->filter();
+        $followups = Followup::included()->filter()->sort()->get();
+        $followups = Followup::included()->filter()->sort()->getOrPaginate();
+
         return response()->json($followups);
     }
-
 
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'Evaluación_de_progreso' => 'required|string|max:255',
-            'Actividades_Realizadas' => 'required|integer',
-            'Fecha_Inicio' => 'required|string',
-            'Fecha_Fin' => 'required|string',
-            'Etapa_practica' => 'required|string|max:255',
-            'Bitacoras' => 'required|integer',
-            'Informe_visita' => 'required|string',
-            'trainer_id' => 'nullable|required|exists:trainers,id',
-            'superadmin_id' => 'nullable|required|exists:superadmins,id',
-            'apprentice_id' => 'nullable|required|exists:apprentices,id'
+            'evaluacion_de_progreso' => 'required|string|max:255',
+            'actividades_realizadas' => 'required|integer',
+            'fecha_inicio' => 'required|string',
+            'fecha_fin' => 'required|string',
+            'etapa_practica' => 'required|string|max:255',
+            'bitacoras' => 'required|integer',
+            'informe_visita' => 'required|string',
+            'trainer_id' => 'nullable|exists:trainers,id',
+            'superadmin_id' => 'nullable|exists:superadmins,id',
+            'apprentice_id' => 'nullable|exists:apprentices,id'
         ]);
 
-        $followup = Followup::create($request->all());
+        $followup = Followup::create($validated);
 
-        return response()->json('Seguimiento se a creado con éxito.');
+        return response()->json($followup, 201);
     }
-
 
     public function show($id)
     {
@@ -44,27 +48,29 @@ class FollowupController extends Controller
     public function update(Request $request, Followup $followup)
     {
         $validated = $request->validate([
-            'Evaluación_de_progreso' => 'required|string|max:255',
-            'Actividades_Realizadas' => 'required|integer',
-            'Fecha_Inicio' => 'required|string',
-            'Fecha_Fin' => 'required|string',
-            'Etapa_practica' => 'required|string|max:255',
-            'Bitacoras' => 'required|integer',
-            'Informe_visita' => 'required|string',
-            'trainer_id' => 'nullable|required|exists:trainers,id',
-            'superadmin_id' => 'nullable|required|exists:superadmins,id',
-            'apprentice_id' => 'nullable|required|exists:apprentices,id'
+            'evaluacion_de_progreso' => 'required|string|max:255',
+            'actividades_realizadas' => 'required|integer',
+            'fecha_inicio' => 'required|string',
+            'fecha_fin' => 'required|string',
+            'etapa_practica' => 'required|string|max:255',
+            'bitacoras' => 'required|integer',
+            'informe_visita' => 'required|string',
+            'trainer_id' => 'nullable|exists:trainers,id',
+            'superadmin_id' => 'nullable|exists:superadmins,id',
+            'apprentice_id' => 'nullable|exists:apprentices,id'
         ]);
 
+        $followup->update($validated);
 
-        $followup = Followup::create($request->all());
-
-        return response()->json('Seguimiento actualizado con éxito.');
+        return response()->json($followup);
     }
 
+    
     public function destroy(Followup $followup)
     {
         $followup->delete();
-    return response()->json('Seguimiento eliminado con éxito.');
+        return response()->json(null, 204);
     }
+
+
 }
