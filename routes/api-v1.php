@@ -6,7 +6,9 @@ use App\Http\Controllers\ApprenticeController;
 use App\Http\Controllers\AdministratorController;
 
 use App\Http\Controllers\Api\SuperadminController;
-
+use App\Http\Controllers\DiaryController;
+use App\Http\Controllers\FollowupController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\TrainerController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -88,6 +90,7 @@ Route::prefix('followups')->group(function() {
     Route::put('update/{followup}', [FollowupController::class, 'update']);
     Route::delete('delete/{followup}', [FollowupController::class, 'destroy']);
 });
+
 
 //RUTAS AGENDA
 Route::prefix('diaries')->group(function(){

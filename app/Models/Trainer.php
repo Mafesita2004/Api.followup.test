@@ -24,3 +24,4 @@ class Trainer extends Model
         return $this->belongsTo(Notification::class);
     }
 }
+ 

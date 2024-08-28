@@ -29,7 +29,7 @@ class Apprentice extends Model
     ];
     public function followup()
     {
-        return $this->belongsTo(Followup::class);
+        return $this->hasMany(Followup::class);
     }
     public function notifications(){
         return $this->belongsTo(Notification::class);
